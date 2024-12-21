@@ -353,10 +353,10 @@ function isPalindrome(str) {
  */
 
 function findLongestWord(sentence) {
-  if (!sentence) return ''; 
+  if (!sentence) return '';
 
   return sentence
-    .split(/\s+/) 
+    .split(/\s+/)
     .reduce(
       (longestWord, currentWord) =>
         currentWord.length > longestWord.length ? currentWord : longestWord,
@@ -374,8 +374,11 @@ function findLongestWord(sentence) {
  *   reverseWords('Hello World') => 'olleH dlroW'
  *   reverseWords('The Quick Brown Fox') => 'ehT kciuQ nworB xoF'
  */
-function reverseWords(/* str */) {
-  throw new Error('Not implemented');
+function reverseWords(str) {
+  return str
+    .split(' ')
+    .map((word) => word.split('').reverse().join(''))
+    .join(' ');
 }
 
 /**
