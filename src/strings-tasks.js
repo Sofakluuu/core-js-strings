@@ -431,8 +431,12 @@ function getStringFromTemplate(firstName, lastName) {
  *   extractNameFromTemplate('Hello, John Doe!') => 'John Doe'
  *   extractNameFromTemplate('Hello, Chuck Norris!') => 'Chuck Norris'
  */
-function extractNameFromTemplate(/* value */) {
-  throw new Error('Not implemented');
+function extractNameFromTemplate(value) {
+  const template = value.match(/Hello, (.*?)!/);
+  if (template) {
+    return template[1];
+  }
+  return 'no First_Name and Last_Name found';
 }
 
 /**
