@@ -498,8 +498,77 @@ function extractEmails(str) {
  *    => 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
  *
  */
-function encodeToRot13(/* str */) {
-  throw new Error('Not implemented');
+function encodeToRot13(str) {
+  const lowercaseAlphabet = [
+    'a',
+    'b',
+    'c',
+    'd',
+    'e',
+    'f',
+    'g',
+    'h',
+    'i',
+    'j',
+    'k',
+    'l',
+    'm',
+    'n',
+    'o',
+    'p',
+    'q',
+    'r',
+    's',
+    't',
+    'u',
+    'v',
+    'w',
+    'x',
+    'y',
+    'z',
+  ];
+  const uppercaseAlphabet = [
+    'A',
+    'B',
+    'C',
+    'D',
+    'E',
+    'F',
+    'G',
+    'H',
+    'I',
+    'J',
+    'K',
+    'L',
+    'M',
+    'N',
+    'O',
+    'P',
+    'Q',
+    'R',
+    'S',
+    'T',
+    'U',
+    'V',
+    'W',
+    'X',
+    'Y',
+    'Z',
+  ];
+  return str
+    .split('')
+    .map((char) => {
+      if (lowercaseAlphabet.includes(char)) {
+        const index = lowercaseAlphabet.indexOf(char);
+        return lowercaseAlphabet[(index + 13) % 26];
+      }
+      if (uppercaseAlphabet.includes(char)) {
+        const index = uppercaseAlphabet.indexOf(char);
+        return uppercaseAlphabet[(index + 13) % 26];
+      }
+      return char;
+    })
+    .join('');
 }
 
 /**
